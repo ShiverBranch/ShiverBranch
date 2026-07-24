@@ -1,0 +1,416 @@
+/* =========================================
+   SHIVER BRANCH
+   Main Stylesheet
+========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root{
+
+    --red:#d90429;
+    --redBright:#ff2447;
+    --black:#050505;
+    --panel:rgba(10,10,10,.82);
+    --text:#ffffff;
+    --gray:#bdbdbd;
+    --border:rgba(255,0,0,.15);
+
+}
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    font-family:'Inter',sans-serif;
+    color:var(--text);
+    background:#050505;
+    overflow-x:hidden;
+
+}
+
+/*=========================
+BACKGROUND
+==========================*/
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.88)),
+    url("../images/background.jpg");
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+
+    z-index:-3;
+
+}
+
+/* Dark overlay */
+
+.overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+    radial-gradient(circle at center,
+    rgba(255,0,0,.04),
+    transparent 60%);
+
+    pointer-events:none;
+
+    z-index:-2;
+
+}
+
+/*=========================
+HEADER
+==========================*/
+
+header{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px 80px;
+
+    backdrop-filter:blur(18px);
+
+    background:rgba(0,0,0,.45);
+
+    border-bottom:1px solid rgba(255,255,255,.05);
+
+    z-index:999;
+
+    transition:.35s;
+
+}
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+.logo img{
+
+    height:70px;
+
+    transition:.3s;
+
+}
+
+.logo img:hover{
+
+    transform:scale(1.05);
+
+    filter:drop-shadow(0 0 18px rgba(255,0,0,.45));
+
+}
+
+nav{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:40px;
+
+}
+
+nav a{
+
+    text-decoration:none;
+
+    color:white;
+
+    font-size:17px;
+
+    letter-spacing:1px;
+
+    transition:.3s;
+
+    position:relative;
+
+}
+
+nav a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:-8px;
+
+    width:0;
+
+    height:2px;
+
+    background:var(--redBright);
+
+    transition:.3s;
+
+}
+
+nav a:hover{
+
+    color:var(--redBright);
+
+}
+
+nav a:hover::after{
+
+    width:100%;
+
+}
+
+/* Discord Button */
+
+.discord{
+
+    padding:12px 28px;
+
+    border:2px solid var(--red);
+
+    border-radius:8px;
+
+}
+
+.discord:hover{
+
+    background:var(--red);
+
+    color:white;
+
+}
+
+/*=========================
+HERO
+==========================*/
+
+.hero{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:180px 40px 120px;
+
+}
+
+.hero-content{
+
+    max-width:900px;
+
+}
+
+.hero-logo{
+
+    width:700px;
+
+    max-width:100%;
+
+    margin-bottom:35px;
+
+    animation:glow 3s infinite alternate;
+
+}
+
+.hero h2{
+
+    font-family:'Bebas Neue',sans-serif;
+
+    font-size:42px;
+
+    color:var(--redBright);
+
+    letter-spacing:8px;
+
+    margin-bottom:25px;
+
+}
+
+.hero p{
+
+    color:var(--gray);
+
+    font-size:22px;
+
+    line-height:1.8;
+
+    margin-bottom:45px;
+
+}
+
+/*=========================
+BUTTONS
+==========================*/
+
+.buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:25px;
+
+    flex-wrap:wrap;
+
+}
+
+.btn{
+
+    display:inline-block;
+
+    padding:18px 50px;
+
+    text-decoration:none;
+
+    border-radius:10px;
+
+    font-weight:700;
+
+    transition:.35s;
+
+}
+
+.red{
+
+    background:var(--red);
+
+    color:white;
+
+    box-shadow:0 0 20px rgba(255,0,0,.35);
+
+}
+
+.red:hover{
+
+    transform:translateY(-5px);
+
+    background:var(--redBright);
+
+    box-shadow:0 0 35px rgba(255,0,0,.7);
+
+}
+
+.outline{
+
+    border:2px solid var(--red);
+
+    color:white;
+
+}
+
+.outline:hover{
+
+    background:var(--red);
+
+    transform:translateY(-5px);
+
+}
+
+/*=========================
+SECTIONS
+==========================*/
+
+section{
+
+    padding:120px 8%;
+
+}
+
+section h1{
+
+    font-family:'Bebas Neue';
+
+    font-size:56px;
+
+    text-align:center;
+
+    color:white;
+
+    letter-spacing:4px;
+
+    margin-bottom:60px;
+
+}
+
+/*=========================
+CARDS
+==========================*/
+
+.card{
+
+    background:var(--panel);
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    padding:45px;
+
+    backdrop-filter:blur(12px);
+
+    transition:.35s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:rgba(255,0,0,.4);
+
+    box-shadow:0 0 40px rgba(255,0,0,.15);
+
+}
+
+.card p{
+
+    color:var(--gray);
+
+    line-height:1.9;
+
+    font-size:18px;
+
+}
